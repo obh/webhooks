@@ -4,6 +4,7 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -50,10 +51,9 @@ func webhook(c echo.Context) error {
 func VerifySignature(expectedSig string, ts int64, body string) (string, error) {
 	t := time.Now()
 	currentTS := t.Unix()
-	fmt.Println(currentTS, ts, currentTS-ts)
-	//if(currentTS - ts > 1000 * 300){
-	//  return false
-	//}
+	if currentTS-ts > 1000*300 {
+		return "", errors.New("webhook delivered too late")
+	}
 	signStr := strconv.FormatInt(ts, 10) + body
 	fmt.Println("signing String: ", signStr)
 	key := ""
