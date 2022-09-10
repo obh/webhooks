@@ -1,0 +1,19 @@
+{
+  "name": "local-webhook-testing",
+  "version": "1.0.0",
+  "description": "spin up an http server to receive webhook callbacks",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "webhooks",
+    "testing"
+  ],
+  "author": "joyrexus",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
