@@ -2,6 +2,11 @@
 This project contains code to handle Cashfree Webhooks in the popular Express framework. 
 The steps to verify the webhook remain same. 
 
+```bash
+npm install
+node server.js
+```
+
 1. Fetch Raw JSON and the headers
 ```javascript
 app.use(

@@ -2,6 +2,11 @@
 This project contains code to handle Cashfree Webhooks in the popular Echo framework. 
 The steps to verify the webhook remain same
 
+```
+go mod download
+go run main.go
+```
+
 1. Fetch Raw JSON and the headers
 ```go
 signature := c.Request().Header.Get("x-webhook-signature")
