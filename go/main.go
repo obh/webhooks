@@ -56,7 +56,7 @@ func VerifySignature(expectedSig string, ts int64, body string) (string, error) 
 	//}
 	signStr := strconv.FormatInt(ts, 10) + body
 	fmt.Println("signing String: ", signStr)
-	key := "b85928b6c8f941c0ff8b8252ce040280305a3f3c"
+	key := ""
 	h := hmac.New(sha256.New, []byte(key))
 	h.Write([]byte(signStr))
 	b := h.Sum(nil)
